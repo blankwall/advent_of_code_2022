@@ -2,18 +2,17 @@
 #include <stdio.h>
 #include <string.h>
 #include <ctype.h>
-#include <math.h>
 
-#define INPUT "test.txt"
+#define INPUT "input.txt"
 
-#define BV(x) ((size_t)pow(2,x))
+#define BV(x) ( 1 << x)
 #define MESSAGE 14 //14
 
 
 int count(char* a, size_t len){
 	unsigned int map = 0, set_bit;
 	for (int i = 0; i < len; ++i) {
-		set_bit = BV(a[i]-96);
+		set_bit = BV((a[i]-96));
 		if(map & set_bit) return 1;
 		map |= set_bit;
 	}
